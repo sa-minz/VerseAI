@@ -281,4 +281,3 @@ VerseAI was developed as a portfolio project to demonstrate practical skills in:
 Software Engineering Undergraduate
 
 
-**VerseAI · AI Poetry Studio**
