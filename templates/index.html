@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VerseAI — AI Poem Generator</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- Background decoration -->
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                ✦
+            </div>
+
+            <span>
+                Verse<span class="logo-accent">AI</span>
+            </span>
+
+        </div>
+
+
+        <div class="nav-right">
+
+            <span class="ai-status">
+                <span class="status-dot"></span>
+                AI Powered
+            </span>
+
+            <button
+                class="theme-button"
+                onclick="toggleTheme()"
+                id="themeButton"
+                title="Toggle theme"
+            >
+                🌙
+            </button>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- Main -->
+
+    <main class="main-container">
+
+
+        <!-- Hero -->
+
+        <section class="hero">
+
+            <div class="hero-badge">
+                ✨ AI CREATIVE STUDIO
+            </div>
+
+
+            <!-- Animated Headline -->
+
+            <h1>
+
+                <span id="headlineMain"></span><span
+                    id="headlineAccent"
+                    class="headline-accent"
+                ></span>
+
+            </h1>
+
+
+            <p>
+                Create original poems with the power of AI.
+                Choose your mood, style, and let your imagination flow.
+            </p>
+
+        </section>
+
+
+
+        <!-- Generator -->
+
+        <section class="generator-grid">
+
+
+            <!-- Control Card -->
+
+            <div class="control-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            CREATE
+                        </span>
+
+                        <h2>Your inspiration</h2>
+
+                    </div>
+
+                    <span class="step-number">
+                        01
+                    </span>
+
+                </div>
+
+
+
+                <!-- Topic -->
+
+                <div class="form-group">
+
+                    <label for="topic">
+                        What should your poem be about?
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            ✦
+                        </span>
+
+                        <input
+                            type="text"
+                            id="topic"
+                            placeholder=""
+                            maxlength="150"
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+                    <div class="character-count">
+                        <span id="charCount">0</span>/150
+                    </div>
+
+                </div>
+
+
+
+                <!-- Mood -->
+
+                <div class="form-group">
+
+                    <label>
+                        Choose a mood
+                    </label>
+
+                    <div class="mood-grid">
+
+                        <button
+                            type="button"
+                            class="mood-option active"
+                            data-mood="Happy"
+                        >
+                            <span>☀️</span>
+                            Happy
+                        </button>
+
+                        <button
+                            type="button"
+                            class="mood-option"
+                            data-mood="Romantic"
+                        >
+                            <span>💗</span>
+                            Romantic
+                        </button>
+
+                        <button
+                            type="button"
+                            class="mood-option"
+                            data-mood="Sad"
+                        >
+                            <span>🌧️</span>
+                            Melancholic
+                        </button>
+
+                        <button
+                            type="button"
+                            class="mood-option"
+                            data-mood="Peaceful"
+                        >
+                            <span>🌿</span>
+                            Peaceful
+                        </button>
+
+                        <button
+                            type="button"
+                            class="mood-option"
+                            data-mood="Inspirational"
+                        >
+                            <span>🔥</span>
+                            Inspiring
+                        </button>
+
+                        <button
+                            type="button"
+                            class="mood-option"
+                            data-mood="Mysterious"
+                        >
+                            <span>🌙</span>
+                            Mysterious
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Style -->
+
+                <div class="form-group">
+
+                    <label>
+                        Writing style
+                    </label>
+
+                    <div class="style-grid">
+
+                        <button
+                            type="button"
+                            class="style-option active"
+                            data-style="Free Verse"
+                        >
+                            <strong>Free Verse</strong>
+                            <small>Natural & expressive</small>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="style-option"
+                            data-style="Haiku"
+                        >
+                            <strong>Haiku</strong>
+                            <small>Minimal & thoughtful</small>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="style-option"
+                            data-style="Narrative"
+                        >
+                            <strong>Narrative</strong>
+                            <small>Story-driven</small>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="style-option"
+                            data-style="Lyrical"
+                        >
+                            <strong>Lyrical</strong>
+                            <small>Musical & emotional</small>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Generate Button -->
+
+                <button
+                    type="button"
+                    class="generate-button"
+                    onclick="generatePoem()"
+                    id="generateButton"
+                >
+
+                    <span>
+                        ✨
+                    </span>
+
+                    Generate My Poem
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <div class="privacy-note">
+
+                    🔒 Your inspiration stays private
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Result Card -->
+
+            <div class="result-card">
+
+                <div class="result-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            YOUR CREATION
+                        </span>
+
+                        <h2>Your poem</h2>
+
+                    </div>
+
+                    <div class="creation-icon">
+                        ✦
+                    </div>
+
+                </div>
+
+
+
+                <!-- Empty State -->
+
+                <div
+                    class="empty-state"
+                    id="emptyState"
+                >
+
+                    <div class="empty-icon">
+                        🪶
+                    </div>
+
+                    <h3>
+                        Your poem will appear here
+                    </h3>
+
+                    <p>
+                        Enter an idea, choose your mood and style,
+                        then let AI transform your thoughts into poetry.
+                    </p>
+
+                </div>
+
+
+
+                <!-- Loading State -->
+
+                <div
+                    class="loading-state"
+                    id="loadingState"
+                >
+
+                    <div class="loader">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                    <h3>
+                        Crafting your poem...
+                    </h3>
+
+                    <p>
+                        Finding the right words for your idea.
+                    </p>
+
+                </div>
+
+
+
+                <!-- Poem -->
+
+                <div
+                    class="poem-content"
+                    id="poemContent"
+                >
+
+                    <div
+                        class="poem-text"
+                        id="poem"
+                    ></div>
+
+
+                    <div class="poem-actions">
+
+                        <button
+                            type="button"
+                            onclick="copyPoem()"
+                            class="action-button"
+                        >
+                            📋 Copy
+                        </button>
+
+                        <button
+                            type="button"
+                            onclick="downloadPoem()"
+                            class="action-button"
+                        >
+                            ↓ Download
+                        </button>
+
+                        <button
+                            type="button"
+                            onclick="generatePoem()"
+                            class="action-button primary-action"
+                        >
+                            ↻ Again
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Footer -->
+
+        <footer>
+
+            <div>
+
+                <span class="footer-logo">
+                    VerseAI
+                </span>
+
+                <span>
+                    · AI Poetry Studio
+                </span>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+
+    <script
+        src="{{ url_for('static', filename='script.js') }}"
+    ></script>
+
+</body>
+
+</html>

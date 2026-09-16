@@ -1,0 +1,1154 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   ROOT VARIABLES
+========================================= */
+
+:root {
+    --bg: #f7f5f0;
+    --card: rgba(255, 255, 255, 0.82);
+    --text: #20201f;
+    --muted: #77736d;
+    --border: rgba(30, 30, 30, 0.09);
+    --accent: #9b6b43;
+    --accent-dark: #765034;
+    --soft: #efe7dc;
+
+    --shadow:
+        0 20px 60px rgba(45, 35, 25, 0.08);
+}
+
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+body.dark {
+    --bg: #171615;
+    --card: rgba(35, 34, 32, 0.88);
+    --text: #f4f1ec;
+    --muted: #aaa49b;
+    --border: rgba(255, 255, 255, 0.1);
+    --accent: #d0a477;
+    --accent-dark: #e0b78c;
+    --soft: #292724;
+
+    --shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+    font-family: "DM Sans", sans-serif;
+
+    background: var(--bg);
+    color: var(--text);
+
+    min-height: 100vh;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   BACKGROUND GLOW
+========================================= */
+
+.background-glow {
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: 0.12;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+.glow-one {
+    background: #c49a6c;
+
+    top: -200px;
+    right: -100px;
+}
+
+
+.glow-two {
+    background: #8d6e63;
+
+    bottom: -250px;
+    left: -150px;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 28px 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 24px;
+
+    font-weight: 700;
+}
+
+
+.logo-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: var(--soft);
+
+    color: var(--accent);
+}
+
+
+.logo-accent {
+    color: var(--accent);
+}
+
+
+/* =========================================
+   NAV RIGHT
+========================================= */
+
+.nav-right {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+.ai-status {
+    font-size: 13px;
+
+    color: var(--muted);
+}
+
+
+.status-dot {
+    display: inline-block;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #65a878;
+
+    margin-right: 5px;
+
+    box-shadow:
+        0 0 8px rgba(101, 168, 120, 0.7);
+}
+
+
+/* =========================================
+   THEME BUTTON
+========================================= */
+
+.theme-button {
+    border: 1px solid var(--border);
+
+    background: var(--card);
+
+    color: var(--text);
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.theme-button:hover {
+    transform: rotate(15deg) scale(1.05);
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.main-container {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 30px 25px 60px;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    max-width: 750px;
+
+    margin: 45px auto 55px;
+
+    text-align: center;
+}
+
+
+.hero-badge {
+    display: inline-block;
+
+    padding: 8px 14px;
+
+    border-radius: 30px;
+
+    background: var(--soft);
+
+    color: var(--accent);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================================
+   HERO HEADLINE
+========================================= */
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(42px, 6vw, 70px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 22px;
+
+    min-height: 74px;
+}
+
+
+/* Animated headline spans */
+
+#headlineMain,
+#headlineAccent {
+    display: inline;
+}
+
+
+#headlineMain {
+    color: var(--text);
+}
+
+
+#headlineAccent {
+    color: var(--accent);
+
+    font-style: italic;
+}
+
+
+/* =========================================
+   TYPING CURSOR
+========================================= */
+
+#headlineAccent::after {
+    content: "|";
+
+    color: var(--accent);
+
+    font-family: "DM Sans", sans-serif;
+
+    font-style: normal;
+
+    font-weight: 400;
+
+    margin-left: 5px;
+
+    animation:
+        headlineCursor 0.8s infinite;
+}
+
+
+@keyframes headlineCursor {
+
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    46%,
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   HERO DESCRIPTION
+========================================= */
+
+.hero p {
+    color: var(--muted);
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   GENERATOR GRID
+========================================= */
+
+.generator-grid {
+    display: grid;
+
+    grid-template-columns:
+        0.95fr 1.05fr;
+
+    gap: 25px;
+}
+
+
+/* =========================================
+   CARDS
+========================================= */
+
+.control-card,
+.result-card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 25px;
+
+    padding: 32px;
+
+    box-shadow: var(--shadow);
+
+    backdrop-filter: blur(20px);
+}
+
+
+.control-card {
+    transition:
+        transform 0.3s ease;
+}
+
+
+.control-card:hover {
+    transform: translateY(-3px);
+}
+
+
+.result-card {
+    min-height: 560px;
+}
+
+
+/* =========================================
+   CARD HEADINGS
+========================================= */
+
+.card-heading,
+.result-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 30px;
+}
+
+
+.section-label {
+    color: var(--accent);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 28px;
+
+    margin-top: 5px;
+}
+
+
+.step-number {
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   FORM GROUP
+========================================= */
+
+.form-group {
+    margin-bottom: 26px;
+
+    position: relative;
+}
+
+
+label {
+    display: block;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   TOPIC INPUT
+========================================= */
+
+.input-wrapper {
+    position: relative;
+}
+
+
+.input-icon {
+    position: absolute;
+
+    left: 15px;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    color: var(--accent);
+
+    pointer-events: none;
+}
+
+
+input {
+    width: 100%;
+
+    padding:
+        15px
+        15px
+        15px
+        42px;
+
+    border-radius: 12px;
+
+    border:
+        1px solid var(--border);
+
+    background: var(--soft);
+
+    color: var(--text);
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+
+input::placeholder {
+    color: var(--muted);
+
+    opacity: 0.75;
+}
+
+
+input:focus {
+    border-color: var(--accent);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(155, 107, 67, 0.1);
+}
+
+
+.character-count {
+    text-align: right;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================
+   MOOD
+========================================= */
+
+.mood-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 8px;
+}
+
+
+.mood-option {
+    padding: 12px 5px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    transition:
+        0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.mood-option span {
+    display: block;
+
+    font-size: 18px;
+
+    margin-bottom: 4px;
+}
+
+
+.mood-option:hover {
+    transform:
+        translateY(-2px);
+}
+
+
+.mood-option:hover,
+.mood-option.active {
+    border-color: var(--accent);
+
+    background: var(--soft);
+
+    color: var(--text);
+}
+
+
+/* =========================================
+   WRITING STYLE
+========================================= */
+
+.style-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 8px;
+}
+
+
+.style-option {
+    text-align: left;
+
+    padding: 13px;
+
+    border-radius: 10px;
+
+    border:
+        1px solid var(--border);
+
+    background: transparent;
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    transition:
+        0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.style-option:hover {
+    transform:
+        translateY(-2px);
+}
+
+
+.style-option strong {
+    display: block;
+
+    font-size: 12px;
+}
+
+
+.style-option small {
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+
+.style-option:hover,
+.style-option.active {
+    border-color: var(--accent);
+
+    background: var(--soft);
+}
+
+
+/* =========================================
+   GENERATE BUTTON
+========================================= */
+
+.generate-button {
+    width: 100%;
+
+    border: none;
+
+    border-radius: 13px;
+
+    padding: 16px;
+
+    background: var(--text);
+
+    color: var(--bg);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    transition:
+        0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.generate-button:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.15);
+}
+
+
+.generate-button:active {
+    transform:
+        translateY(0);
+}
+
+
+.generate-button:disabled {
+    cursor: wait;
+}
+
+
+.arrow {
+    font-size: 20px;
+}
+
+
+.privacy-note {
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    margin-top: 14px;
+}
+
+
+/* =========================================
+   RESULT CARD
+========================================= */
+
+.creation-icon {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    background: var(--soft);
+
+    color: var(--accent);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    animation:
+        gentleFloat 3s ease-in-out infinite;
+}
+
+
+@keyframes gentleFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-4px);
+    }
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty-state,
+.loading-state {
+    min-height: 430px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+
+.empty-icon {
+    width: 75px;
+    height: 75px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--soft);
+
+    font-size: 32px;
+
+    margin-bottom: 20px;
+
+    animation:
+        gentleFloat 3s ease-in-out infinite;
+}
+
+
+.empty-state h3,
+.loading-state h3 {
+    font-family:
+        "Playfair Display", serif;
+
+    font-size: 22px;
+
+    margin-bottom: 8px;
+}
+
+
+.empty-state p,
+.loading-state p {
+    max-width: 350px;
+
+    color: var(--muted);
+
+    line-height: 1.6;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   LOADING STATE
+========================================= */
+
+.loading-state {
+    display: none;
+}
+
+
+.loader {
+    display: flex;
+
+    gap: 7px;
+
+    margin-bottom: 20px;
+}
+
+
+.loader span {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    animation:
+        bounce 1.2s infinite;
+}
+
+
+.loader span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+
+.loader span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+
+@keyframes bounce {
+
+    0%,
+    60%,
+    100% {
+        transform:
+            translateY(0);
+
+        opacity: 0.5;
+    }
+
+    30% {
+        transform:
+            translateY(-10px);
+
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   POEM CONTENT
+========================================= */
+
+.poem-content {
+    display: none;
+
+    animation:
+        poemAppear 0.5s ease;
+}
+
+
+@keyframes poemAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+.poem-text {
+    background: var(--soft);
+
+    border-radius: 15px;
+
+    padding: 30px;
+
+    min-height: 350px;
+
+    white-space: pre-line;
+
+    font-family:
+        "Playfair Display", serif;
+
+    font-size: 18px;
+
+    line-height: 2;
+
+    color: var(--text);
+
+    border-left:
+        3px solid var(--accent);
+}
+
+
+/* =========================================
+   POEM ACTIONS
+========================================= */
+
+.poem-actions {
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 15px;
+}
+
+
+.action-button {
+    flex: 1;
+
+    padding: 11px;
+
+    border-radius: 9px;
+
+    border:
+        1px solid var(--border);
+
+    background: transparent;
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    transition: 0.2s ease;
+}
+
+
+.action-button:hover {
+    background: var(--soft);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.primary-action {
+    background: var(--text);
+
+    color: var(--bg);
+
+    border: none;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    margin-top: 50px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid var(--border);
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+.footer-logo {
+    color: var(--text);
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   RESPONSIVE - TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+    .generator-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .result-card {
+        min-height: auto;
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE - MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 20px 15px;
+    }
+
+
+    .main-container {
+        padding:
+            20px
+            15px
+            40px;
+    }
+
+
+    .hero {
+        margin-top: 25px;
+    }
+
+
+    .hero h1 {
+        font-size: 42px;
+
+        letter-spacing: -1px;
+
+        min-height: 90px;
+    }
+
+
+    .hero p {
+        font-size: 15px;
+    }
+
+
+    .control-card,
+    .result-card {
+        padding: 22px;
+    }
+
+
+    .mood-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .poem-actions {
+        flex-direction: column;
+    }
+
+
+    footer {
+        margin-top: 35px;
+    }
+
+}
+
+/* =========================================
+   POEM REVEAL ANIMATION
+========================================= */
+
+#poemContent {
+    animation: poemReveal 0.7s ease forwards;
+}
+
+@keyframes poemReveal {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
