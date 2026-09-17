@@ -1,14 +1,5 @@
 # ✨ VerseAI — AI Poetry Studio
 
-<p align="center">
-  <strong>Turn simple ideas into beautiful AI-generated poetry.</strong>
-</p>
-
-<p align="center">
-  <a href="https://verse-ai-indol.vercel.app/">🌐 Live Demo</a>
-  &nbsp;•&nbsp;
-  <a href="https://github.com/sa-minz/VerseAI">📂 GitHub Repository</a>
-</p>
 
 ---
 
@@ -407,6 +398,4 @@ VerseAI was developed as a portfolio project to demonstrate practical software e
 
 **Software Engineering Undergraduate**
 
-<p align="center">
-  ✨ Built with Python, Flask, JavaScript & AI
-</p>
+
