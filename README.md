@@ -1,33 +1,76 @@
 # ✨ VerseAI — AI Poetry Studio
 
-VerseAI is a modern **AI-powered poetry generation web application** that transforms simple ideas and topics into creative poems.
+<p align="center">
+  <strong>Turn simple ideas into beautiful AI-generated poetry.</strong>
+</p>
 
-Users can enter a topic, select a mood and writing style, and generate an original poem using AI. The application provides a clean, responsive interface with dark mode, smooth animations, copy and download features.
+<p align="center">
+  <a href="https://verse-ai-indol.vercel.app/">🌐 Live Demo</a>
+  &nbsp;•&nbsp;
+  <a href="https://github.com/sa-minz/VerseAI">📂 GitHub Repository</a>
+</p>
 
 ---
 
-## 🌐 Live Repository
+## 📖 About
 
-[VerseAI on GitHub](https://github.com/sa-minz/VerseAI?utm_source=chatgpt.com)
+**VerseAI** is a modern AI-powered poetry generation web application that transforms simple ideas and topics into creative poems.
+
+Users can enter a topic, select a **mood** and **writing style**, and generate an original poem using AI. The application combines a responsive modern interface with smooth animations, theme switching, and convenient poem management features.
+
+The application is built with **Python Flask** on the backend and integrates the **OpenRouter API** for AI-powered poem generation.
+
+---
+
+## 🌐 Live Demo
+
+### 🚀 [Open VerseAI](https://verse-ai-indol.vercel.app/)
+
+The application is deployed and hosted on **Vercel**.
+
+> **Note:** AI poem generation requires a valid OpenRouter API configuration on the deployed application.
 
 ---
 
 ## ✨ Features
 
-* 🤖 AI-powered poem generation
-* 💭 Generate poems from custom topics
-* 🎭 Multiple mood options
-* ✍️ Multiple writing styles
-* ⚡ Loading animation while generating
-* 📝 Animated topic placeholder
-* ✨ Animated hero headline
-* 📋 Copy generated poems
-* 📥 Download poems as `.txt` files
-* 🔄 Generate another poem
-* 🌙 Dark / Light mode
-* 📱 Responsive design
-* 🎨 Modern and minimal user interface
-* 🔐 Secure API key management using environment variables
+### 🤖 AI Poetry Generation
+
+* Generate poems from custom topics
+* AI-powered poem generation using OpenRouter
+* Custom mood selection
+* Multiple writing styles
+* Context-aware generation prompts
+
+### 🎨 Modern User Interface
+
+* Clean and minimal design
+* Responsive layout
+* Modern card-based interface
+* Soft visual effects and gradients
+* Smooth transitions and animations
+* Dark / Light mode
+
+### ⚡ Interactive Experience
+
+* Animated hero headline
+* Animated topic placeholder
+* Character counter
+* Loading animation during poem generation
+* Smooth poem reveal animation
+* Generate another poem
+
+### 📋 Poem Management
+
+* Copy generated poems to clipboard
+* Download poems as `.txt` files
+* Easily generate new poems
+
+### 🔐 Security
+
+* API keys stored using environment variables
+* `.env` excluded from Git
+* No API credentials hard-coded in the source code
 
 ---
 
@@ -44,10 +87,14 @@ Users can enter a topic, select a mood and writing style, and generate an origin
 * Python
 * Flask
 
-### AI
+### AI Integration
 
 * OpenRouter API
 * OpenAI Python SDK
+
+### Deployment
+
+* Vercel
 
 ### Development Tools
 
@@ -78,7 +125,120 @@ VerseAI/
 
 ---
 
-## ⚙️ Installation
+## 🔄 How It Works
+
+VerseAI follows a simple request-and-generation workflow:
+
+```text
+┌──────────────────────┐
+│    User enters topic │
+└──────────┬───────────┘
+           ↓
+┌──────────────────────┐
+│   Select mood/style  │
+└──────────┬───────────┘
+           ↓
+┌──────────────────────┐
+│  Frontend sends data │
+│      to Flask        │
+└──────────┬───────────┘
+           ↓
+┌──────────────────────┐
+│   Flask builds AI    │
+│       prompt         │
+└──────────┬───────────┘
+           ↓
+┌──────────────────────┐
+│   OpenRouter API     │
+│   generates poem     │
+└──────────┬───────────┘
+           ↓
+┌──────────────────────┐
+│   Poem returned to   │
+│      the user        │
+└──────────┬───────────┘
+           ↓
+┌──────────────────────┐
+│ Copy / Download /    │
+│ Generate Again       │
+└──────────────────────┘
+```
+
+---
+
+## 🎭 Mood Options
+
+VerseAI allows users to control the emotional direction of the generated poem.
+
+Available moods include:
+
+* 😊 Happy
+* 💙 Sad
+* ❤️ Romantic
+* 🌙 Mysterious
+* 🌿 Calm
+* ✨ Inspirational
+
+---
+
+## ✍️ Writing Styles
+
+Users can select a writing style to influence how the poem is generated.
+
+The selected:
+
+* Topic
+* Mood
+* Writing style
+
+are sent to the Flask backend and included in the AI generation prompt.
+
+---
+
+## 🎨 User Interface
+
+VerseAI includes:
+
+* Responsive design
+* Dark and light themes
+* Animated hero section
+* Animated topic suggestions
+* Interactive mood selection
+* Interactive writing-style selection
+* Loading state
+* Smooth poem reveal
+* Copy and download actions
+* Mobile-friendly layout
+
+---
+
+## 🔑 API Configuration
+
+VerseAI uses the **OpenRouter API** for AI-powered poem generation.
+
+Create a `.env` file in the project root:
+
+```env
+OPENROUTER_API_KEY=your_api_key_here
+```
+
+Replace `your_api_key_here` with your own OpenRouter API key.
+
+### ⚠️ Security Notice
+
+**Never commit your `.env` file or API key to GitHub.**
+
+The project includes `.env` in `.gitignore`:
+
+```text
+.env
+```
+
+This prevents the API key from being accidentally committed to the repository.
+
+---
+
+## ⚙️ Local Installation
 
 ### 1. Clone the Repository
 
@@ -100,15 +260,13 @@ cd VerseAI
 python -m venv venv
 ```
 
-Activate the virtual environment.
-
-#### Windows PowerShell
+### Windows PowerShell
 
 ```powershell
 venv\Scripts\activate
 ```
 
-#### Windows Command Prompt
+### Windows Command Prompt
 
 ```cmd
 venv\Scripts\activate
@@ -124,35 +282,17 @@ pip install -r requirements.txt
 
 ---
 
-## 🔑 API Configuration
+### 4. Configure the API Key
 
-VerseAI uses the **OpenRouter API** to generate poems.
+Create a `.env` file:
 
-Create a `.env` file in the project root:
-
-```text
+```env
 OPENROUTER_API_KEY=your_api_key_here
 ```
 
-Replace `your_api_key_here` with your own OpenRouter API key.
-
-### ⚠️ Important
-
-Never upload your `.env` file or API key to GitHub.
-
-The project already includes `.env` in `.gitignore` to help prevent accidentally exposing the API key.
-
 ---
 
-## ▶️ Run the Application
-
-Activate your virtual environment:
-
-```powershell
-venv\Scripts\activate
-```
-
-Then start the Flask server:
+### 5. Run the Application
 
 ```bash
 python app.py
@@ -164,120 +304,109 @@ The application will normally be available at:
 http://127.0.0.1:5000
 ```
 
-Open the address in your web browser.
+Open the address in your browser.
 
 ---
 
-## 🖥️ How It Works
+## 💻 Example
 
-The application follows a simple workflow:
+A user could enter:
 
 ```text
-User enters a topic
-        ↓
-User selects mood
-        ↓
-User selects writing style
-        ↓
-VerseAI sends the request to Flask
-        ↓
-Flask sends the prompt to OpenRouter
-        ↓
-AI generates the poem
-        ↓
-Generated poem is displayed
-        ↓
-User can copy, download, or generate again
+A rainy evening in Tokyo
 ```
 
----
-
-## 🎭 Mood Options
-
-VerseAI allows users to choose the emotional direction of the poem, such as:
-
-* Happy
-* Sad
-* Romantic
-* Mysterious
-* Calm
-* Inspirational
-
----
-
-## ✍️ Writing Styles
-
-Users can select different poetry styles to customize the generated poem.
-
-The selected topic, mood, and writing style are sent to the AI as part of the generation prompt.
-
----
-
-## 🎨 User Interface
-
-VerseAI includes:
-
-* Modern card-based design
-* Soft background effects
-* Responsive layout
-* Dark and light themes
-* Smooth transitions
-* Loading state
-* Animated text
-* Mobile-friendly interface
-
----
-
-## 🔐 Security
-
-Sensitive API credentials are stored using environment variables instead of being hard-coded into the application.
-
-The `.env` file is excluded from Git using:
+Then select:
 
 ```text
-.env
+Mood: Happy
+Style: Free Verse
 ```
 
-This helps prevent API credentials from being committed to the repository.
+VerseAI sends the information to the Flask backend, which generates a poem using the configured AI model through OpenRouter.
 
 ---
 
-## 🚀 Future Improvements
+## 🚀 Deployment
+
+VerseAI is deployed using **Vercel**.
+
+### Production
+
+**Live Application:**
+
+https://verse-ai-indol.vercel.app/
+
+### Deployment Flow
+
+```text
+GitHub Repository
+       ↓
+     Vercel
+       ↓
+Python / Flask Application
+       ↓
+Production Deployment
+       ↓
+Live Web Application
+```
+
+Environment variables such as the OpenRouter API key are configured through the deployment environment rather than stored in the repository.
+
+---
+
+## 🔐 Security Practices
+
+The project follows basic security practices for API-based applications:
+
+* API credentials are stored in environment variables
+* `.env` is excluded from version control
+* API keys are not hard-coded
+* Sensitive configuration is separated from source code
+
+---
+
+## 🔮 Future Improvements
 
 Possible future enhancements include:
 
 * 🎤 Voice-to-topic input
 * 🌍 Multiple language support
 * 💾 Save generated poems
-* 👤 User accounts
+* 👤 User authentication
 * 📚 Personal poem library
-* 🖼️ AI-generated poem artwork
+* 🖼️ AI-generated artwork for poems
 * 📄 PDF poem export
 * ⭐ Favorite poems
 * 📤 Social sharing
-* 🎵 Background music options
+* 🎵 Optional background music
+* 📊 Poetry generation history
 
 ---
 
 ## 🎓 Project Purpose
 
-VerseAI was developed as a portfolio project to demonstrate practical skills in:
+VerseAI was developed as a portfolio project to demonstrate practical software engineering skills including:
 
 * Web application development
 * Python and Flask
 * Frontend development
+* JavaScript
 * REST API communication
 * AI API integration
 * Environment variable management
 * Git and GitHub
 * Responsive UI design
+* Cloud deployment
 
 ---
 
 ## 👩‍💻 Author
 
-**Savinthi Abeygunawardena**
+### Savinthi Abeygunawardena
 
-Software Engineering Undergraduate
+**Software Engineering Undergraduate**
 
-
+<p align="center">
+  ✨ Built with Python, Flask, JavaScript & AI
+</p>
